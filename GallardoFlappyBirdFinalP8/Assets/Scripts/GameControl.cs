@@ -10,27 +10,27 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
-    public static GameControl instance;  // Singleton instance
-    public GameObject gameOverText;      // Reference to the Game Over text
-    public bool gameOver = false;        // Flag to check if the game is over
+    public static GameControl instance; 
+    public GameObject gameOverText;      
+    public bool gameOver = false;        
     public float scrollSpeed = -1.5f;
     private int score = 0;
     public TextMeshProUGUI scoreText;
-    // Awake is called when the script instance is being loaded
+    
     void Awake()
     {
-        // Implement singleton pattern
+        
         if (instance == null)
         {
             instance = this;
         }
         else
         {
-            Destroy(gameObject); // Destroy this instance if another one exists
+            Destroy(gameObject); 
         }
     }
 
-    // Update is called once per frame (you can add logic here if necessary)
+    // Update is called once per frame 
     void Update()
     {
         if (gameOver == true && Input.GetMouseButtonDown (0)) 
@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    // This method is called when the bird dies (e.g., in collision detection)
+    
     public void BirdScored()
     {
         if (gameOver)
